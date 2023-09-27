@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_data_search_form" model="ir.ui.view">
+        <field name="name">data_search_form</field>
+        <field name="model">data.search</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <group>
+                        <group>
+                            <field name="search_field"/>
+                        </group>
+                        <group>
+                            <button name="action_search" type="object"
+                                    class="fa fa-search"
+                            />
+                        </group>
+                        <group>
+                            <field name="model_name_id"/>
+                            <field name="field_name_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="field_record_ids">
+                            <tree>
+                                <field name="name_id"/>
+                                <field name="name"/>
+                                <field name="data"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_data_search" model="ir.actions.act_window">
+        <field name="name">Data search</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">data.search</field>
+        <field name="view_mode">form</field>
+    </record>
+    <menuitem id="data_search_root"
+              name="Data Search"
+              action="action_data_search"
+    />
+</odoo>
